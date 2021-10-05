@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Content from './Content';
 
 const api ={
   key: "d2bfe64d4f3746fc7a3fa4d151bffa9a",
@@ -6,6 +7,7 @@ const api ={
 }
 
 function App() {
+
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
@@ -36,6 +38,7 @@ function App() {
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
       <main>
+        <Content/>
         <div className="search-box">
           <input 
             type="text"
@@ -59,10 +62,11 @@ function App() {
             <div className="weather">{weather.weather[0].main}</div>
           </div>
         </div>
+     
         ) : ('')}
       </main>
    </div>
-    
+   
   );
 }
 
